@@ -763,6 +763,7 @@ do
     -- You can add other tools here that you want Mason to install
     'black',
     'clang-format',
+    'codelldb',
     'isort',
     'prettier',
     'prettierd',
@@ -788,8 +789,12 @@ do
     format_on_save = function(bufnr)
       -- You can specify filetypes to autoformat on save here:
       local enabled_filetypes = {
-        -- lua = true,
-        -- python = true,
+        c = true,
+        cpp = true,
+        html = true,
+        javascript = true,
+        python = true,
+        typescript = true,
       }
       if enabled_filetypes[vim.bo[bufnr].filetype] then
         return { timeout_ms = 500 }
@@ -1003,7 +1008,7 @@ do
   -- NOTE: You can add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- require 'custom.plugins'
+  require 'custom.plugins'
 end
 
 -- The line beneath this is called `modeline`. See `:help modeline`
